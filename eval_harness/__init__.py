@@ -8,6 +8,7 @@ from eval_harness.intent_evaluator import IntentEvaluator
 from eval_harness.entity_evaluator import EntityEvaluator
 from eval_harness.transcription_evaluator import TranscriptionEvaluator
 from eval_harness.regression_tracker import RegressionTracker
+from eval_harness.leakage_detector import DataLeakageDetector
 
 __all__ = [
     "normalize_arabic_orthography",
@@ -17,4 +18,5 @@ __all__ = [
     "EntityEvaluator",
     "TranscriptionEvaluator",
     "RegressionTracker",
+    "DataLeakageDetector"
 ]

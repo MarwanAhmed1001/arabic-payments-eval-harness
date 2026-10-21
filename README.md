@@ -60,7 +60,8 @@ flowchart TD
 │   ├── intent_evaluator.py             # Classification metrics & banking safety analysis
 │   ├── entity_evaluator.py             # Slot filling, Exact Match (EM), and SER metrics
 │   ├── transcription_evaluator.py      # Speech WER, CER, and Financial Keyword Error Rate
-│   └── regression_tracker.py           # Diff and regression analysis between runs
+│   ├── regression_tracker.py           # Diff and regression analysis between runs
+│   └── leakage_detector.py             # Speaker overlap & identifier leakage auditor
 ├── models/
 │   ├── __init__.py
 │   ├── base_runner.py                  # Abstract model interface
@@ -68,8 +69,11 @@ flowchart TD
 │   └── semantic_hybrid_runner.py       # Contextual dialect model with negation & slang handling
 ├── reports/                            # Generated JSON and Markdown findings
 ├── tests/
-│   ├── run_tests.py                    # Zero-dependency unit test suite
-│   └── test_eval_harness.py
+│   ├── run_tests.py                    # Master test runner (13 passing tests)
+│   ├── test_eval_harness.py            # Core harness metrics tests
+│   ├── test_leakage_detector.py        # Partition isolation & leakage tests
+│   └── test_edge_cases_and_slang.py    # Egyptian slang numerals & negations
+├── app.py                              # Interactive Streamlit Web Evaluator
 ├── .env.example                        # Template for environment settings (zero secrets committed)
 ├── .gitignore                          # Strict rules protecting keys, logs, and environments
 ├── evaluate.py                         # Master CLI evaluation harness
@@ -90,21 +94,28 @@ cd arabic-payments-eval-harness
 pip install -r requirements.txt
 ```
 
-### 2. Run Unit Tests
-Verify text normalization, metric computations, and banking safety logic:
+### 2. Run Comprehensive Unit Tests
+Execute the 13 zero-dependency verification tests across normalization, leakage detection, and dialect slang:
 
 ```bash
 python tests/run_tests.py
 ```
 
-### 3. Run Baseline Evaluation
+### 3. Launch Interactive Streamlit Evaluator
+Launch the interactive web UI for real-time inference, entity slot visualization, benchmark browsing, and live leakage auditing:
+
+```bash
+streamlit run app.py
+```
+
+### 4. Run Baseline Evaluation CLI
 Execute the evaluation harness on the golden benchmark using the baseline model:
 
 ```bash
 python evaluate.py --model baseline --dataset data/v1.0_golden_eval.json --output-dir reports/run_01_baseline
 ```
 
-### 4. Run Experimental Model & Compute Regressions
+### 5. Run Experimental Model & Compute Regressions
 Benchmark candidate model iterations and track regressions directly against the baseline:
 
 ```bash
@@ -114,7 +125,7 @@ python evaluate.py --model semantic_hybrid \
                    --compare-with reports/run_01_baseline/evaluation_report.json
 ```
 
-### 5. Stress Test Against Adversarial Edge Cases
+### 6. Stress Test Against Adversarial Edge Cases
 Evaluate model robustness against Egyptian slang numerals, number disambiguation, and explicit transaction cancellations:
 
 ```bash
