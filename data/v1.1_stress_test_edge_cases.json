@@ -1,0 +1,187 @@
+{
+  "version": "1.1.0-stress",
+  "benchmark_name": "Parlex Dialect Payment Stress & Adversarial Test Suite",
+  "description": "Adversarial edge cases: number disambiguation, Egyptian slang numerals, negations/cancellations, missing slots, and false-friend numbers.",
+  "created_at": "2026-10-21",
+  "samples_count": 9,
+  "data": [
+    {
+      "id": "STRESS-001",
+      "text": "حول لمحمد على 01099887766 ميتين جنيه",
+      "intent": "P2P_TRANSFER",
+      "entities": [
+        {
+          "entity_type": "recipient_name",
+          "raw_text": "محمد",
+          "normalized_value": "محمد"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "01099887766",
+          "normalized_value": "01099887766"
+        },
+        {
+          "entity_type": "amount",
+          "raw_text": "ميتين",
+          "normalized_value": 200.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "جنيه",
+          "normalized_value": "EGP"
+        }
+      ],
+      "metadata": {
+        "category": "number_disambiguation",
+        "risk": "critical_financial_error"
+      }
+    },
+    {
+      "id": "STRESS-002",
+      "text": "حول 100 جنيه لرقم 01011112222",
+      "intent": "P2P_TRANSFER",
+      "entities": [
+        {
+          "entity_type": "amount",
+          "raw_text": "100",
+          "normalized_value": 100.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "جنيه",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "01011112222",
+          "normalized_value": "01011112222"
+        }
+      ],
+      "metadata": {
+        "category": "number_disambiguation",
+        "risk": "critical_financial_error"
+      }
+    },
+    {
+      "id": "STRESS-003",
+      "text": "ابعت باكو لمصطفى أخويا على المحفظة 01555667788",
+      "intent": "P2P_TRANSFER",
+      "entities": [
+        {
+          "entity_type": "amount",
+          "raw_text": "باكو",
+          "normalized_value": 1000.0
+        },
+        {
+          "entity_type": "recipient_name",
+          "raw_text": "مصطفى",
+          "normalized_value": "مصطفى"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "01555667788",
+          "normalized_value": "01555667788"
+        }
+      ],
+      "metadata": {
+        "category": "egyptian_slang",
+        "risk": "entity_omission"
+      }
+    },
+    {
+      "id": "STRESS-004",
+      "text": "فكلي كارت شحن بعشرينيه لرقمي 01098765432 فودافون",
+      "intent": "BILL_PAYMENT",
+      "entities": [
+        {
+          "entity_type": "biller_service",
+          "raw_text": "كارت شحن",
+          "normalized_value": "MOBILE_RECHARGE"
+        },
+        {
+          "entity_type": "amount",
+          "raw_text": "بعشرينيه",
+          "normalized_value": 20.0
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "01098765432",
+          "normalized_value": "01098765432"
+        },
+        {
+          "entity_type": "biller_name",
+          "raw_text": "فودافون",
+          "normalized_value": "VODAFONE_EGYPT"
+        }
+      ],
+      "metadata": {
+        "category": "egyptian_slang",
+        "risk": "entity_misunderstanding"
+      }
+    },
+    {
+      "id": "STRESS-005",
+      "text": "لا خلاص الغي التحويل بتاع الـ 500 جنيه لمحمد اوعى تبعت حاجة",
+      "intent": "OUT_OF_SCOPE",
+      "entities": [],
+      "metadata": {
+        "category": "cancellation_negation",
+        "risk": "unauthorized_debit"
+      }
+    },
+    {
+      "id": "STRESS-006",
+      "text": "اوعى تدفع فاتورة النت بتاعة 022998877 الشهر ده عشان النت مفصول",
+      "intent": "OUT_OF_SCOPE",
+      "entities": [],
+      "metadata": {
+        "category": "cancellation_negation",
+        "risk": "unauthorized_debit"
+      }
+    },
+    {
+      "id": "STRESS-007",
+      "text": "عايز احول فلوس ضروري لأحمد على فودافون كاش",
+      "intent": "P2P_TRANSFER",
+      "entities": [
+        {
+          "entity_type": "recipient_name",
+          "raw_text": "أحمد",
+          "normalized_value": "أحمد"
+        },
+        {
+          "entity_type": "payment_rail",
+          "raw_text": "فودافون كاش",
+          "normalized_value": "VODAFONE_CASH"
+        }
+      ],
+      "metadata": {
+        "category": "missing_slots",
+        "missing": [
+          "amount",
+          "recipient_identifier"
+        ]
+      }
+    },
+    {
+      "id": "STRESS-008",
+      "text": "انا كلمت خدمة العملاء 500 مرة ومحدش رد عليا ورصيدي اتخصم منه فلوس",
+      "intent": "OUT_OF_SCOPE",
+      "entities": [],
+      "metadata": {
+        "category": "false_friend_numbers",
+        "risk": "hallucinated_amount"
+      }
+    },
+    {
+      "id": "STRESS-009",
+      "text": "الراوتر بقاله 3 ايام فاصل وفاتورة النت ادفعت امبارح",
+      "intent": "OUT_OF_SCOPE",
+      "entities": [],
+      "metadata": {
+        "category": "false_friend_numbers",
+        "risk": "accidental_rebill"
+      }
+    }
+  ]
+}

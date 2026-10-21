@@ -1,0 +1,457 @@
+{
+  "version": "1.0.0",
+  "benchmark_name": "Parlex Arabic & Egyptian Dialect Payment Evaluation Suite",
+  "description": "Standardized benchmark for Intent Classification, Entity Extraction, and Speech Transcription for Egyptian conversational banking.",
+  "created_at": "2026-10-21",
+  "samples_count": 16,
+  "data": [
+    {
+      "id": "PAY-P2P-001",
+      "text": "حول 500 جنيه لمحمد أحمد على فودافون كاش رقم 01012345678",
+      "intent": "P2P_TRANSFER",
+      "entities": [
+        {
+          "entity_type": "amount",
+          "raw_text": "500",
+          "normalized_value": 500.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "جنيه",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_name",
+          "raw_text": "محمد أحمد",
+          "normalized_value": "محمد أحمد"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "01012345678",
+          "normalized_value": "01012345678"
+        },
+        {
+          "entity_type": "payment_rail",
+          "raw_text": "فودافون كاش",
+          "normalized_value": "VODAFONE_CASH"
+        }
+      ],
+      "asr_reference": "حول خمسمائة جنيه لمحمد أحمد على فودافون كاش رقم صفر واحد صفر واحد اتنين تلاتة اربعة خمسة ستة سبعة تمانية",
+      "asr_hypothesis": "حول 500 جنيه لمحمد احمد علي فودافون كاش رقم 01012345678",
+      "metadata": {
+        "difficulty": "easy",
+        "channel": "mobile_wallet",
+        "speaker_id": "SPK_01"
+      }
+    },
+    {
+      "id": "PAY-P2P-002",
+      "text": "ابعت 1250 ج لـ سارة محمود على حساب انستاباي sara@instapay",
+      "intent": "P2P_TRANSFER",
+      "entities": [
+        {
+          "entity_type": "amount",
+          "raw_text": "1250",
+          "normalized_value": 1250.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "ج",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_name",
+          "raw_text": "سارة محمود",
+          "normalized_value": "سارة محمود"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "sara@instapay",
+          "normalized_value": "sara@instapay"
+        },
+        {
+          "entity_type": "payment_rail",
+          "raw_text": "انستاباي",
+          "normalized_value": "INSTAPAY"
+        }
+      ],
+      "asr_reference": "ابعت ألف ومائتين وخمسين جنيه لسارة محمود على حساب انستاباي سارة آت انستاباي",
+      "asr_hypothesis": "ابعت 1250 ج لساره محمود علي حساب انستا باي sara instapay",
+      "metadata": {
+        "difficulty": "medium",
+        "channel": "instapay",
+        "speaker_id": "SPK_02"
+      }
+    },
+    {
+      "id": "PAY-P2P-003",
+      "text": "عايز احول 3000 جنيه لحساب البنك الاهلي 12345678901234 باسم محمود علي",
+      "intent": "P2P_TRANSFER",
+      "entities": [
+        {
+          "entity_type": "amount",
+          "raw_text": "3000",
+          "normalized_value": 3000.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "جنيه",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_name",
+          "raw_text": "محمود علي",
+          "normalized_value": "محمود علي"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "12345678901234",
+          "normalized_value": "12345678901234"
+        },
+        {
+          "entity_type": "payment_rail",
+          "raw_text": "البنك الاهلي",
+          "normalized_value": "NBE_BANK"
+        }
+      ],
+      "asr_reference": "عايز أحول تلات آلاف جنيه لحساب البنك الأهلي واحد اتنين تلاتة أربعة خمسة ستة سبعة تمانية تسعة صفر واحد اتنين تلاتة أربعة باسم محمود علي",
+      "asr_hypothesis": "عايز احول 3000 جنيه لحساب البنك الاهلي 12345678901234 باسم محمود علي",
+      "metadata": {
+        "difficulty": "medium",
+        "channel": "bank_wire",
+        "speaker_id": "SPK_03"
+      }
+    },
+    {
+      "id": "PAY-P2P-004",
+      "text": "ممكن تحول مية وخمسين جنيه لمحفظة اتصالات 01198765432 لأختي ياسمين",
+      "intent": "P2P_TRANSFER",
+      "entities": [
+        {
+          "entity_type": "amount",
+          "raw_text": "مية وخمسين",
+          "normalized_value": 150.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "جنيه",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_name",
+          "raw_text": "ياسمين",
+          "normalized_value": "ياسمين"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "01198765432",
+          "normalized_value": "01198765432"
+        },
+        {
+          "entity_type": "payment_rail",
+          "raw_text": "اتصالات",
+          "normalized_value": "ETISALAT_CASH"
+        }
+      ],
+      "asr_reference": "ممكن تحول مية وخمسين جنيه لمحفظة اتصالات صفر واحد واحد تسعة تمانية سبعة ستة خمسة أربعة تلاتة اتنين لأختي ياسمين",
+      "asr_hypothesis": "ممكن تحول 150 جنيه لمحفظه اتصالات 01198765432 لاختي ياسمين",
+      "metadata": {
+        "difficulty": "hard",
+        "channel": "mobile_wallet",
+        "speaker_id": "SPK_04"
+      }
+    },
+    {
+      "id": "PAY-P2P-005",
+      "text": "حول ٧٥٠ جنيه مصري لمصطفى ابراهيم محفظة اورنج 01233445566",
+      "intent": "P2P_TRANSFER",
+      "entities": [
+        {
+          "entity_type": "amount",
+          "raw_text": "٧٥٠",
+          "normalized_value": 750.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "جنيه مصري",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_name",
+          "raw_text": "مصطفى ابراهيم",
+          "normalized_value": "مصطفى ابراهيم"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "01233445566",
+          "normalized_value": "01233445566"
+        },
+        {
+          "entity_type": "payment_rail",
+          "raw_text": "اورنج",
+          "normalized_value": "ORANGE_CASH"
+        }
+      ],
+      "asr_reference": "حول سبعمائة وخمسين جنيه مصري لمصطفى إبراهيم محفظة أورنج صفر واحد اتنين تلاتة تلاتة أربعة أربعة خمسة خمسة ستة ستة",
+      "asr_hypothesis": "حول 750 جنيه مصري لمصطفي ابراهيم محفظة اورانج 01233445566",
+      "metadata": {
+        "difficulty": "medium",
+        "channel": "mobile_wallet",
+        "speaker_id": "SPK_05"
+      }
+    },
+    {
+      "id": "PAY-BILL-001",
+      "text": "ادفع فاتورة النت المنزلي لشركة وي بمبلغ 350 جنيه برقم التليفون 0223456789",
+      "intent": "BILL_PAYMENT",
+      "entities": [
+        {
+          "entity_type": "biller_name",
+          "raw_text": "وي",
+          "normalized_value": "WE_TELECOM"
+        },
+        {
+          "entity_type": "biller_service",
+          "raw_text": "النت المنزلي",
+          "normalized_value": "HOME_INTERNET"
+        },
+        {
+          "entity_type": "amount",
+          "raw_text": "350",
+          "normalized_value": 350.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "جنيه",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "0223456789",
+          "normalized_value": "0223456789"
+        }
+      ],
+      "asr_reference": "ادفع فاتورة النت المنزلي لشركة وي بمبلغ ثلاثمائة وخمسين جنيه برقم التليفون صفر اتنين اتنين تلاتة أربعة خمسة ستة سبعة تمانية تسعة",
+      "asr_hypothesis": "ادفع فاتوره النت المنزلي لشركه وي بمبلغ 350 جنيه برقم التليفون 0223456789",
+      "metadata": {
+        "difficulty": "easy",
+        "channel": "telecom_bill",
+        "speaker_id": "SPK_06"
+      }
+    },
+    {
+      "id": "PAY-BILL-002",
+      "text": "عايز اسدد فاتورة الكهرباء جنوب القاهرة 480 ج كود السداد 9988776655",
+      "intent": "BILL_PAYMENT",
+      "entities": [
+        {
+          "entity_type": "biller_name",
+          "raw_text": "جنوب القاهرة",
+          "normalized_value": "SOUTH_CAIRO_ELECTRICITY"
+        },
+        {
+          "entity_type": "biller_service",
+          "raw_text": "الكهرباء",
+          "normalized_value": "ELECTRICITY"
+        },
+        {
+          "entity_type": "amount",
+          "raw_text": "480",
+          "normalized_value": 480.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "ج",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "9988776655",
+          "normalized_value": "9988776655"
+        }
+      ],
+      "asr_reference": "عايز أسدد فاتورة الكهرباء جنوب القاهرة أربعمائة وتمانين جنيه كود السداد تسعة تسعة تمانية تمانية سبعة سبعة ستة ستة خمسة خمسة",
+      "asr_hypothesis": "عايز اسدد فاتوره الكهربا جنوب القاهره 480 ج كود السداد 9988776655",
+      "metadata": {
+        "difficulty": "medium",
+        "channel": "utility_bill",
+        "speaker_id": "SPK_07"
+      }
+    },
+    {
+      "id": "PAY-BILL-003",
+      "text": "اشحن كارت رصيد فودافون بمية جنيه على رقمي 01001122334",
+      "intent": "BILL_PAYMENT",
+      "entities": [
+        {
+          "entity_type": "biller_name",
+          "raw_text": "فودافون",
+          "normalized_value": "VODAFONE_EGYPT"
+        },
+        {
+          "entity_type": "biller_service",
+          "raw_text": "شحن كارت رصيد",
+          "normalized_value": "MOBILE_RECHARGE"
+        },
+        {
+          "entity_type": "amount",
+          "raw_text": "مية",
+          "normalized_value": 100.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "جنيه",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "01001122334",
+          "normalized_value": "01001122334"
+        }
+      ],
+      "asr_reference": "اشحن كارت رصيد فودافون بمائة جنيه على رقمي صفر واحد صفر صفر واحد واحد اتنين اتنين تلاتة تلاتة أربعة",
+      "asr_hypothesis": "اشحن كارت رصيد فودافون بميه جنيه علي رقمي 01001122334",
+      "metadata": {
+        "difficulty": "medium",
+        "channel": "topup",
+        "speaker_id": "SPK_08"
+      }
+    },
+    {
+      "id": "PAY-BILL-004",
+      "text": "سداد فاتورة الغاز الطبيعي ناتجاس كود العميل 114422 بقيمة 120 جنيه",
+      "intent": "BILL_PAYMENT",
+      "entities": [
+        {
+          "entity_type": "biller_name",
+          "raw_text": "ناتجاس",
+          "normalized_value": "NATGAS"
+        },
+        {
+          "entity_type": "biller_service",
+          "raw_text": "الغاز الطبيعي",
+          "normalized_value": "GAS"
+        },
+        {
+          "entity_type": "amount",
+          "raw_text": "120",
+          "normalized_value": 120.0
+        },
+        {
+          "entity_type": "currency",
+          "raw_text": "جنيه",
+          "normalized_value": "EGP"
+        },
+        {
+          "entity_type": "recipient_identifier",
+          "raw_text": "114422",
+          "normalized_value": "114422"
+        }
+      ],
+      "asr_reference": "سداد فاتورة الغاز الطبيعي ناتجاس كود العميل واحد واحد أربعة أربعة اتنين اتنين بقيمة مائة وعشرين جنيه",
+      "asr_hypothesis": "سداد فاتورة الغاز الطبيعي ناتجاس كود العميل 114422 بقيمه 120 جنيه",
+      "metadata": {
+        "difficulty": "easy",
+        "channel": "utility_bill",
+        "speaker_id": "SPK_09"
+      }
+    },
+    {
+      "id": "PAY-BAL-001",
+      "text": "هو رصيدي الحالي في المحفظة كام يا فندم؟",
+      "intent": "BALANCE_INQUIRY",
+      "entities": [],
+      "asr_reference": "هو رصيدي الحالي في المحفظة كام يا فندم",
+      "asr_hypothesis": "هو رصيدي الحالي في المحفظه كام يا فندم",
+      "metadata": {
+        "difficulty": "easy",
+        "channel": "inquiry",
+        "speaker_id": "SPK_10"
+      }
+    },
+    {
+      "id": "PAY-BAL-002",
+      "text": "عايز استعلم عن متبقي حساب البنك والفلوس اللي فاضلة",
+      "intent": "BALANCE_INQUIRY",
+      "entities": [],
+      "asr_reference": "عايز أستعلم عن متبقي حساب البنك والفلوس اللي فاضلة",
+      "asr_hypothesis": "عايز استعلم عن متبقي حساب البنك والفلوس الي فاضله",
+      "metadata": {
+        "difficulty": "medium",
+        "channel": "inquiry",
+        "speaker_id": "SPK_01"
+      }
+    },
+    {
+      "id": "PAY-BAL-003",
+      "text": "بقولك ايه رصيد كارت ميزة بتاعي كام دلوقتي",
+      "intent": "BALANCE_INQUIRY",
+      "entities": [
+        {
+          "entity_type": "payment_rail",
+          "raw_text": "ميزة",
+          "normalized_value": "MEEZA"
+        }
+      ],
+      "asr_reference": "بقولك إيه رصيد كارت ميزة بتاعي كام دلوقتي",
+      "asr_hypothesis": "بقولك ايه رصيد كارت ميزه بتاعي كام دلوقتي",
+      "metadata": {
+        "difficulty": "medium",
+        "channel": "inquiry",
+        "speaker_id": "SPK_02"
+      }
+    },
+    {
+      "id": "PAY-OOS-001",
+      "text": "الفيزا بتاعتي اتسحبت في مكنة الـ ATM في فرع المعادي اعمل ايه؟",
+      "intent": "OUT_OF_SCOPE",
+      "entities": [],
+      "asr_reference": "الفيزا بتاعتي اتسحبت في مكنة الإي تي إم في فرع المعادي أعمل إيه",
+      "asr_hypothesis": "الفيزا بتاعتي اتسحبت في مكنه ال atm في فرع المعادي اعمل ايه",
+      "metadata": {
+        "difficulty": "easy",
+        "channel": "support",
+        "speaker_id": "SPK_03"
+      }
+    },
+    {
+      "id": "PAY-OOS-002",
+      "text": "مساء الخير يا غالي اخبارك ايه وايه عروض باقات وي الجديدة",
+      "intent": "OUT_OF_SCOPE",
+      "entities": [],
+      "asr_reference": "مساء الخير يا غالي أخبارك إيه وإيه عروض باقات وي الجديدة",
+      "asr_hypothesis": "مساء الخير ياغالي اخبارك ايه وايه عروض باقات وي الجديده",
+      "metadata": {
+        "difficulty": "easy",
+        "channel": "marketing_query",
+        "speaker_id": "SPK_04"
+      }
+    },
+    {
+      "id": "PAY-OOS-003",
+      "text": "عايز اغير كلمة السر بتاعة التطبيق عشان نسيتها خالص",
+      "intent": "OUT_OF_SCOPE",
+      "entities": [],
+      "asr_reference": "عايز أغير كلمة السر بتاعة التطبيق عشان نسيتها خالص",
+      "asr_hypothesis": "عايز اغير كلمه السر بتاعه التطبيق عشان نسيتها خالص",
+      "metadata": {
+        "difficulty": "easy",
+        "channel": "security_account",
+        "speaker_id": "SPK_05"
+      }
+    },
+    {
+      "id": "PAY-OOS-004",
+      "text": "أنا اشتريت غسالة وعايز اعرف مواعيد الشحن عندكم",
+      "intent": "OUT_OF_SCOPE",
+      "entities": [],
+      "asr_reference": "أنا اشتريت غسالة وعايز أعرف مواعيد الشحن عندكم",
+      "asr_hypothesis": "انا اشتريت غساله وعايز اعرف مواعيد الشحن عندكم",
+      "metadata": {
+        "difficulty": "easy",
+        "channel": "general_chitchat",
+        "speaker_id": "SPK_06"
+      }
+    }
+  ]
+}
