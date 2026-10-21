@@ -56,8 +56,11 @@ def run_evaluation(
         runner = BaselineRuleRunner()
     elif model_type in ["semantic_hybrid", "hybrid"]:
         runner = SemanticHybridRunner()
+    elif model_type in ["ml", "machine_learning"]:
+        from models.ml_intent_classifier import MLIntentRunner
+        runner = MLIntentRunner()
     else:
-        raise ValueError(f"Unknown model runner: {model_type}. Choose 'baseline' or 'semantic_hybrid'.")
+        raise ValueError(f"Unknown model runner: {model_type}. Choose 'baseline', 'semantic_hybrid', or 'ml'.")
 
     # Run predictions
     print(f"[*] Running inference across test set using [{runner.model_name}]...")
@@ -232,7 +235,7 @@ This evaluation harness quantifies model performance across **Intent Classificat
 
 def main():
     parser = argparse.ArgumentParser(description="Parlex Arabic Payment Evaluation Harness CLI")
-    parser.add_argument("--model", type=str, default="baseline", choices=["baseline", "semantic_hybrid", "hybrid"],
+    parser.add_argument("--model", type=str, default="baseline", choices=["baseline", "semantic_hybrid", "hybrid", "ml"],
                         help="Model runner to evaluate")
     parser.add_argument("--dataset", type=str, default="data/v1.0_golden_eval.json",
                         help="Path to evaluation dataset JSON")

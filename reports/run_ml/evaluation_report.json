@@ -1,0 +1,347 @@
+{
+  "benchmark_metadata": {
+    "version": "1.0.0",
+    "dataset_name": "Parlex Arabic & Egyptian Dialect Payment Evaluation Suite",
+    "sample_count": 16
+  },
+  "model_metadata": {
+    "model_name": "TFIDF-LinearClassifier-v1.0",
+    "model_type": "ml"
+  },
+  "intent_metrics": {
+    "total_samples": 16,
+    "accuracy": 1.0,
+    "f1_macro": 1.0,
+    "precision_macro": 1.0,
+    "recall_macro": 1.0,
+    "f1_weighted": 1.0,
+    "per_class": {
+      "P2P_TRANSFER": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 5
+      },
+      "BILL_PAYMENT": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 4
+      },
+      "BALANCE_INQUIRY": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 3
+      },
+      "OUT_OF_SCOPE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 4
+      }
+    },
+    "confusion_matrix": [
+      [
+        5,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        3,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        4
+      ]
+    ],
+    "labels": [
+      "P2P_TRANSFER",
+      "BILL_PAYMENT",
+      "BALANCE_INQUIRY",
+      "OUT_OF_SCOPE"
+    ],
+    "fintech_safety": {
+      "oos_total": 4,
+      "oos_false_accepts": 0,
+      "oos_false_accept_rate": 0.0,
+      "risk_status": "PASS"
+    },
+    "error_count": 0,
+    "errors": []
+  },
+  "entity_metrics": {
+    "total_samples": 16,
+    "turn_exact_match_rate": 0.3125,
+    "micro_precision": 0.7692,
+    "micro_recall": 0.8696,
+    "micro_f1": 0.8163,
+    "slot_error_rate": 0.3913,
+    "per_entity_type": {
+      "amount": {
+        "precision": 0.7273,
+        "recall": 0.8889,
+        "f1_score": 0.8,
+        "tp": 8,
+        "fp": 3,
+        "fn": 1,
+        "support": 9
+      },
+      "currency": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "tp": 9,
+        "fp": 0,
+        "fn": 0,
+        "support": 9
+      },
+      "recipient_name": {
+        "precision": 0.2,
+        "recall": 0.4,
+        "f1_score": 0.2667,
+        "tp": 2,
+        "fp": 8,
+        "fn": 3,
+        "support": 5
+      },
+      "recipient_identifier": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "tp": 9,
+        "fp": 0,
+        "fn": 0,
+        "support": 9
+      },
+      "biller_name": {
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1_score": 0.75,
+        "tp": 3,
+        "fp": 1,
+        "fn": 1,
+        "support": 4
+      },
+      "biller_service": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "support": 4
+      },
+      "payment_rail": {
+        "precision": 1.0,
+        "recall": 0.8333,
+        "f1_score": 0.9091,
+        "tp": 5,
+        "fp": 0,
+        "fn": 1,
+        "support": 6
+      }
+    },
+    "mismatch_count": 18,
+    "sample_mismatches": [
+      {
+        "sample_id": "PAY-P2P-002",
+        "error_type": "MISSING_ENTITY (FN)",
+        "entity_type": "recipient_name",
+        "expected": "سارة محمود"
+      },
+      {
+        "sample_id": "PAY-P2P-002",
+        "error_type": "SPURIOUS_ENTITY (FP)",
+        "entity_type": "recipient_name",
+        "predicted": "سارة محمود على"
+      },
+      {
+        "sample_id": "PAY-P2P-003",
+        "error_type": "MISSING_ENTITY (FN)",
+        "entity_type": "recipient_name",
+        "expected": "محمود علي"
+      },
+      {
+        "sample_id": "PAY-P2P-004",
+        "error_type": "MISSING_ENTITY (FN)",
+        "entity_type": "recipient_name",
+        "expected": "ياسمين"
+      },
+      {
+        "sample_id": "PAY-P2P-004",
+        "error_type": "MISSING_ENTITY (FN)",
+        "entity_type": "payment_rail",
+        "expected": "ETISALAT_CASH"
+      },
+      {
+        "sample_id": "PAY-BILL-002",
+        "error_type": "SPURIOUS_ENTITY (FP)",
+        "entity_type": "recipient_name",
+        "predicted": "قاهرة"
+      },
+      {
+        "sample_id": "PAY-BILL-003",
+        "error_type": "MISSING_ENTITY (FN)",
+        "entity_type": "biller_name",
+        "expected": "VODAFONE_EGYPT"
+      },
+      {
+        "sample_id": "PAY-BILL-003",
+        "error_type": "SPURIOUS_ENTITY (FP)",
+        "entity_type": "recipient_name",
+        "predicted": "ى رقمي"
+      },
+      {
+        "sample_id": "PAY-BILL-004",
+        "error_type": "MISSING_ENTITY (FN)",
+        "entity_type": "amount",
+        "expected": 120.0
+      },
+      {
+        "sample_id": "PAY-BILL-004",
+        "error_type": "SPURIOUS_ENTITY (FP)",
+        "entity_type": "amount",
+        "predicted": 114422.0
+      },
+      {
+        "sample_id": "PAY-BILL-004",
+        "error_type": "SPURIOUS_ENTITY (FP)",
+        "entity_type": "recipient_name",
+        "predicted": "عميل"
+      },
+      {
+        "sample_id": "PAY-BAL-002",
+        "error_type": "SPURIOUS_ENTITY (FP)",
+        "entity_type": "amount",
+        "predicted": 1000.0
+      },
+      {
+        "sample_id": "PAY-BAL-002",
+        "error_type": "SPURIOUS_ENTITY (FP)",
+        "entity_type": "recipient_name",
+        "predicted": "م عن متبقي"
+      },
+      {
+        "sample_id": "PAY-BAL-003",
+        "error_type": "SPURIOUS_ENTITY (FP)",
+        "entity_type": "recipient_name",
+        "predicted": "وقتي"
+      },
+      {
+        "sample_id": "PAY-OOS-001",
+        "error_type": "SPURIOUS_ENTITY (FP)",
+        "entity_type": "amount",
+        "predicted": 1000.0
+      }
+    ]
+  },
+  "transcription_metrics": {
+    "total_audio_samples": 16,
+    "raw_wer": 0.6173,
+    "normalized_wer": 0.4733,
+    "raw_cer": 0.4564,
+    "keyword_error_rate_ker": 0.6552,
+    "orthography_impact_gain": 0.144,
+    "sample_evaluations": [
+      {
+        "id": "PAY-P2P-001",
+        "raw_wer": 0.7,
+        "norm_wer": 0.6,
+        "ref_raw": "حول خمسمائة جنيه لمحمد أحمد على فودافون كاش رقم صفر واحد صفر واحد اتنين تلاتة اربعة خمسة ستة سبعة تمانية",
+        "hyp_raw": "حول 500 جنيه لمحمد احمد علي فودافون كاش رقم 01012345678"
+      },
+      {
+        "id": "PAY-P2P-002",
+        "raw_wer": 0.7692,
+        "norm_wer": 0.6154,
+        "ref_raw": "ابعت ألف ومائتين وخمسين جنيه لسارة محمود على حساب انستاباي سارة آت انستاباي",
+        "hyp_raw": "ابعت 1250 ج لساره محمود علي حساب انستا باي sara instapay"
+      },
+      {
+        "id": "PAY-P2P-003",
+        "raw_wer": 0.72,
+        "norm_wer": 0.64,
+        "ref_raw": "عايز أحول تلات آلاف جنيه لحساب البنك الأهلي واحد اتنين تلاتة أربعة خمسة ستة سبعة تمانية تسعة صفر واحد اتنين تلاتة أربعة باسم محمود علي",
+        "hyp_raw": "عايز احول 3000 جنيه لحساب البنك الاهلي 12345678901234 باسم محمود علي"
+      },
+      {
+        "id": "PAY-P2P-004",
+        "raw_wer": 0.75,
+        "norm_wer": 0.65,
+        "ref_raw": "ممكن تحول مية وخمسين جنيه لمحفظة اتصالات صفر واحد واحد تسعة تمانية سبعة ستة خمسة أربعة تلاتة اتنين لأختي ياسمين",
+        "hyp_raw": "ممكن تحول 150 جنيه لمحفظه اتصالات 01198765432 لاختي ياسمين"
+      },
+      {
+        "id": "PAY-P2P-005",
+        "raw_wer": 0.8,
+        "norm_wer": 0.7,
+        "ref_raw": "حول سبعمائة وخمسين جنيه مصري لمصطفى إبراهيم محفظة أورنج صفر واحد اتنين تلاتة تلاتة أربعة أربعة خمسة خمسة ستة ستة",
+        "hyp_raw": "حول 750 جنيه مصري لمصطفي ابراهيم محفظة اورانج 01233445566"
+      },
+      {
+        "id": "PAY-BILL-001",
+        "raw_wer": 0.6364,
+        "norm_wer": 0.5455,
+        "ref_raw": "ادفع فاتورة النت المنزلي لشركة وي بمبلغ ثلاثمائة وخمسين جنيه برقم التليفون صفر اتنين اتنين تلاتة أربعة خمسة ستة سبعة تمانية تسعة",
+        "hyp_raw": "ادفع فاتوره النت المنزلي لشركه وي بمبلغ 350 جنيه برقم التليفون 0223456789"
+      },
+      {
+        "id": "PAY-BILL-002",
+        "raw_wer": 0.8095,
+        "norm_wer": 0.6667,
+        "ref_raw": "عايز أسدد فاتورة الكهرباء جنوب القاهرة أربعمائة وتمانين جنيه كود السداد تسعة تسعة تمانية تمانية سبعة سبعة ستة ستة خمسة خمسة",
+        "hyp_raw": "عايز اسدد فاتوره الكهربا جنوب القاهره 480 ج كود السداد 9988776655"
+      },
+      {
+        "id": "PAY-BILL-003",
+        "raw_wer": 0.6842,
+        "norm_wer": 0.6316,
+        "ref_raw": "اشحن كارت رصيد فودافون بمائة جنيه على رقمي صفر واحد صفر صفر واحد واحد اتنين اتنين تلاتة تلاتة أربعة",
+        "hyp_raw": "اشحن كارت رصيد فودافون بميه جنيه علي رقمي 01001122334"
+      },
+      {
+        "id": "PAY-BILL-004",
+        "raw_wer": 0.5294,
+        "norm_wer": 0.4706,
+        "ref_raw": "سداد فاتورة الغاز الطبيعي ناتجاس كود العميل واحد واحد أربعة أربعة اتنين اتنين بقيمة مائة وعشرين جنيه",
+        "hyp_raw": "سداد فاتورة الغاز الطبيعي ناتجاس كود العميل 114422 بقيمه 120 جنيه"
+      },
+      {
+        "id": "PAY-BAL-001",
+        "raw_wer": 0.125,
+        "norm_wer": 0.0,
+        "ref_raw": "هو رصيدي الحالي في المحفظة كام يا فندم",
+        "hyp_raw": "هو رصيدي الحالي في المحفظه كام يا فندم"
+      }
+    ]
+  },
+  "regression_comparison": {
+    "summary_deltas": {
+      "intent_accuracy_delta": 0.0,
+      "intent_macro_f1_delta": 0.0,
+      "entity_micro_f1_delta": 0.1684,
+      "slot_error_rate_delta": -0.1522
+    },
+    "regression_analysis": {
+      "fixed_cases_count": 0,
+      "fixed_sample_ids": [],
+      "regression_cases_count": 0,
+      "regressed_sample_ids": [],
+      "persistent_error_count": 0,
+      "verdict": "RECOMMENDED"
+    }
+  }
+}

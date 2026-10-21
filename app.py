@@ -12,6 +12,7 @@ import pandas as pd
 
 from models.baseline_rule_runner import BaselineRuleRunner
 from models.semantic_hybrid_runner import SemanticHybridRunner
+from models.ml_intent_classifier import MLIntentRunner
 from eval_harness.text_normalizer import normalize_arabic_orthography, normalize_digits, clean_egyptian_phone
 from eval_harness.transcription_evaluator import TranscriptionEvaluator
 from eval_harness.leakage_detector import DataLeakageDetector
@@ -39,6 +40,7 @@ st.markdown('<div class="subtitle">Automated Evaluation Harness for Conversation
 @st.cache_resource
 def get_runners():
     return {
+        "Machine Learning Classifier (TF-IDF + Linear Classifier)": MLIntentRunner(),
         "Semantic Hybrid Model (v2.0 - Dialect Aware)": SemanticHybridRunner(),
         "Baseline Rule-Based Model (v1.0 - Regex)": BaselineRuleRunner()
     }
