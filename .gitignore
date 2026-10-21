@@ -17,6 +17,13 @@ token.json
 client_secrets.json
 
 # ==========================================
+# Personal Documents & Local Resumes
+# (Keep local on machine, not in public AI library)
+# ==========================================
+resume/
+*.docx
+
+# ==========================================
 # Python & Bytecode
 # ==========================================
 __pycache__/
